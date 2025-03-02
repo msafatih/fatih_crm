@@ -1,5 +1,5 @@
 <?php
-
+tes
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
