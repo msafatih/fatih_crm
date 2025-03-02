@@ -36,5 +36,14 @@ class DatabaseSeeder extends Seeder
             'phone' => '1234567891',
             'role' => 'manager',
         ]);
+
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('password'),
+            'address' => 'Admin Address',
+            'phone' => '1234567892',
+            'role' => 'admin',
+        ]);
     }
 }
