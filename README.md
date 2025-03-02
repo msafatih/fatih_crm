@@ -95,15 +95,15 @@ After running seeders, you can login with these accounts:
 
 ```
 Admin:
-Email: admin@example.com
+Email: admin@admin.com
 Password: password
 
 Manager:
-Email: manager@example.com
+Email: manager@manager.com
 Password: password
 
 Sales:
-Email: sales@example.com
+Email: sales@sales.com
 Password: password
 ```
 
