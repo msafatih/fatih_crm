@@ -1,5 +1,5 @@
 <?php
-p
+
 namespace App\View\Components;
 
 use Closure;
