@@ -40,7 +40,7 @@ A web-based CRM system built with Laravel for managing Internet Service Provider
 
 1. Clone the repository
 ```bash
-git clone https://github.com/msafatih/fatih_crm/
+git clone https://github.com/msafatih/fatih_crm.git
 cd fatih_crm
 ```
 
