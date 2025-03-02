@@ -1,5 +1,5 @@
 <?php
-
+tes
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Auth\Events\Lockout;
