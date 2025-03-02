@@ -1,5 +1,5 @@
 name: Issues
-issues
+
 on:
   issues:
     types: [labeled]
