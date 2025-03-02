@@ -1,5 +1,5 @@
 <?php
-
+p
 namespace App\View\Components\Dashboard\Table;
 
 use Closure;
