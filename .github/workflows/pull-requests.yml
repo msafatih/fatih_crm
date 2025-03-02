@@ -1,5 +1,5 @@
 name: Pull Requests
-Pull
+
 on:
   pull_request_target:
     types: [opened]
