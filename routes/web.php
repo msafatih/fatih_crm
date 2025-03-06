@@ -11,13 +11,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('leads', LeadController::class);
+
     Route::prefix('leads/{lead}/projects')->group(function () {
         Route::get('create', [LeadController::class, 'createProject'])->name('leads.projects.create');
         Route::post('store', [LeadController::class, 'storeProject'])->name('leads.projects.store');
@@ -26,7 +24,8 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
         Route::put('{project}/update', [LeadController::class, 'updateProject'])->name('leads.projects.update');
         Route::delete('{project}', [LeadController::class, 'destroyProject'])->name('leads.projects.destroy');
     });
-    Route::resource('products', ProductController::class);
+
+    Route::resource('products', ProductController::class)->except('show');
     Route::resource('projects', ProjectController::class)->only(['index', 'show']);
     Route::patch('projects/{project}/approve', [ProjectController::class, 'approve'])->name('projects.approve');
     Route::patch('projects/{project}/reject', [ProjectController::class, 'reject'])->name('projects.reject');

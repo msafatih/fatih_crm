@@ -27,7 +27,6 @@ class ProjectController extends Controller
             return view('dashboard.projects.index', compact('projects',));
         }
     }
-
     /**
      * Display the specified resource.
      */

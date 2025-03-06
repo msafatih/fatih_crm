@@ -35,10 +35,10 @@ class LeadController extends Controller
     public function create()
     {
         //
-        if (!Auth::user()->role === 'sales') {
-            return redirect()->route('leads.index');
+        if (Auth::user()->role === 'sales') {
+            return view('dashboard.leads.create');
         }
-        return view('dashboard.leads.create');
+        return redirect()->route('leads.index');
     }
 
     /**

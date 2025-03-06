@@ -16,12 +16,12 @@ class ProductController extends Controller
     public function index()
     {
         //
-        if (!Auth::user()->role === 'admin' || !Auth::user()->role === 'manager') {
-            return redirect()->route('dashboard.index');
-        } else {
+        if (Auth::user()->role === 'admin' || Auth::user()->role === 'manager') {
             $products = Product::all();
 
             return view('dashboard.products.index', compact('products',));
+        } else {
+            return redirect()->route('dashboard')->with('errors', 'Anda tidak memiliki akses ke halaman tersebut');
         }
     }
 
@@ -31,10 +31,10 @@ class ProductController extends Controller
     public function create()
     {
         //
-        if (!Auth::user()->role === 'admin' || !Auth::user()->role === 'manager') {
-            return redirect()->route('products.index');
+        if (Auth::user()->role === 'admin' || !Auth::user()->role === 'manager') {
+            return view('dashboard.products.create');
         }
-        return view('dashboard.products.create');
+        return redirect()->route('dashboard')->with('errors', 'Anda tidak memiliki akses ke halaman tersebut');
     }
 
     /**
@@ -57,14 +57,6 @@ class ProductController extends Controller
                 ->withInput()
                 ->with('error', 'Terjadi kesalahan saat menyimpan product. Silakan coba lagi.');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
     }
 
     /**
